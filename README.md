@@ -22,29 +22,29 @@ El sistema permite separar las responsabilidades de los **estudiantes** y del **
 
 ### 👨‍🎓 Módulo de estudiantes / usuarios
 
-* 📚 **Catálogo de libros:** exploración del catálogo de libros disponibles.
-* 📥 **Solicitud de préstamos:** posibilidad de solicitar libros directamente desde el catálogo.
-* 📖 **Mis préstamos:** visualización de los libros actualmente prestados.
+* 📚 **Catálogo de libros:** exploración visual de los libros disponibles.
+* 📥 **Solicitud de préstamos:** solicitud de libros directamente desde el catálogo.
+* 📖 **Mis préstamos:** consulta de libros actualmente prestados.
 * 🔄 **Renovación:** solicitud de renovación del plazo de préstamo.
 * 📋 **Historial de préstamos:** consulta de préstamos anteriores y libros devueltos.
 
 ### 🛡️ Módulo de administración / bibliotecario
 
-* 📊 **Dashboard administrativo:** visualización de estadísticas generales del sistema.
+* 📊 **Dashboard:** estadísticas generales del sistema.
 * 📚 **Gestión de libros:** creación, consulta, edición y eliminación de libros.
-* 👥 **Gestión de usuarios:** administración de usuarios y asignación de roles.
+* 👥 **Gestión de usuarios:** administración de usuarios y roles.
 * 📦 **Logística y entregas:** control de solicitudes de préstamo y devolución.
-* ✅ **Aprobación de préstamos:** confirmación de la entrega física de los libros.
-* 📑 **Informes:** generación y consulta de información relacionada con el flujo bibliotecario.
-* 🕐 **Últimos movimientos:** visualización de las actividades recientes del sistema.
+* ✅ **Aprobación de préstamos:** confirmación de la entrega física de libros.
+* 📑 **Informes:** consulta de información relacionada con el funcionamiento de la biblioteca.
+* 🕐 **Últimos movimientos:** visualización de las actividades recientes.
 
 ---
 
 ## 📊 Dashboard administrativo
 
-El panel administrativo permite consultar diferentes métricas del sistema:
+El panel administrativo permite consultar:
 
-* 📚 Libros registrados en el catálogo.
+* 📚 Libros registrados.
 * 📖 Préstamos activos.
 * 👥 Usuarios registrados.
 * 🔄 Devoluciones pendientes.
@@ -81,7 +81,7 @@ El panel administrativo permite consultar diferentes métricas del sistema:
 └────────────┬───────────────┘
              │
              ▼
-       Estado: ACTIVO
+        Estado: ACTIVO
              │
              ▼
 ┌────────────────────────────┐
@@ -95,7 +95,7 @@ El panel administrativo permite consultar diferentes métricas del sistema:
 └────────────┬───────────────┘
              │
              ▼
-       DEVOLUCIÓN
+        DEVOLUCIÓN
              │
              ▼
        Estado: DEVUELTO
@@ -108,35 +108,33 @@ El panel administrativo permite consultar diferentes métricas del sistema:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/libroscan.git
+git clone https://github.com/Jaider-Galvis/libroscan.git
 cd libroscan
 ```
 
-> Reemplaza `https://github.com/tu-usuario/libroscan.git` por la URL real de tu repositorio.
+> Si el nombre real del repositorio es diferente, reemplaza `libroscan` por el nombre correspondiente.
 
-### 2. Instalar dependencias
-
-Instalar las dependencias de PHP:
+### 2. Instalar dependencias de PHP
 
 ```bash
 composer install
 ```
 
-Instalar las dependencias de JavaScript:
+### 3. Instalar dependencias de JavaScript
 
 ```bash
 npm install
 ```
 
-### 3. Configurar el archivo `.env`
+### 4. Configurar el archivo `.env`
 
-Copia el archivo `.env.example`:
+Copia el archivo de ejemplo:
 
 ```bash
 cp .env.example .env
 ```
 
-Configura los datos de conexión a la base de datos:
+Configura la conexión a MySQL:
 
 ```env
 DB_CONNECTION=mysql
@@ -147,25 +145,25 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 4. Generar la clave de la aplicación
+### 5. Generar la clave de Laravel
 
 ```bash
 php artisan key:generate
 ```
 
-### 5. Ejecutar migraciones y Seeders
+### 6. Ejecutar migraciones y Seeders
 
 ```bash
 php artisan migrate --seed
 ```
 
-### 6. Iniciar el servidor de Laravel
+### 7. Iniciar Laravel
 
 ```bash
 php artisan serve
 ```
 
-### 7. Iniciar Vite
+### 8. Iniciar Vite
 
 En otra terminal:
 
@@ -173,9 +171,7 @@ En otra terminal:
 npm run dev
 ```
 
-### 8. Acceder al sistema
-
-Una vez iniciados los servicios, abre:
+### 9. Acceder al sistema
 
 ```text
 http://127.0.0.1:8000
@@ -236,38 +232,38 @@ libroscan/
 
 El estudiante puede:
 
-* Consultar el catálogo.
-* Solicitar libros.
-* Consultar sus préstamos activos.
+* Consultar el catálogo de libros.
+* Solicitar préstamos.
+* Consultar préstamos activos.
 * Solicitar renovaciones.
-* Consultar su historial de préstamos.
+* Consultar su historial.
 
 ### 🛡️ Bibliotecario / Administrador
 
-El personal autorizado puede:
+El administrador puede:
 
-* Administrar usuarios.
-* Administrar libros.
+* Gestionar usuarios.
+* Gestionar libros.
 * Revisar solicitudes.
 * Aprobar préstamos.
 * Registrar entregas y devoluciones.
 * Consultar estadísticas.
-* Gestionar la logística bibliotecaria.
-* Generar informes.
+* Gestionar la logística.
+* Consultar informes.
 
 ---
 
-## 🔐 Seguridad y autenticación
+## 🔐 Autenticación y seguridad
 
-LibroScan utiliza **Laravel Breeze** para gestionar la autenticación de usuarios.
+LibroScan utiliza **Laravel Breeze** para la autenticación de usuarios.
 
-El acceso a las diferentes funcionalidades está controlado mediante **roles y permisos**, permitiendo separar las funciones correspondientes a estudiantes y administradores.
+El sistema implementa diferentes roles para controlar el acceso a las funcionalidades de estudiantes y administradores.
+
+> **Importante:** las contraseñas, tokens, claves privadas y datos sensibles nunca deben incluirse en el repositorio ni en el archivo `README.md`.
 
 ---
 
 ## 🗃️ Estados de los préstamos
-
-Los préstamos manejan diferentes estados para controlar su ciclo de vida:
 
 | Estado      | Descripción                                                      |
 | ----------- | ---------------------------------------------------------------- |
@@ -279,7 +275,9 @@ Los préstamos manejan diferentes estados para controlar su ciclo de vida:
 
 ## 🎯 Objetivo del proyecto
 
-El objetivo de **LibroScan** es proporcionar una solución tecnológica para mejorar la gestión de los recursos bibliográficos de la institución, reduciendo procesos manuales y facilitando el control de:
+El objetivo de **LibroScan** es proporcionar una solución tecnológica para mejorar la gestión de los recursos bibliográficos de la institución.
+
+El sistema busca reducir los procesos manuales y facilitar el control de:
 
 * 📚 Inventario de libros.
 * 👥 Usuarios.
@@ -287,6 +285,16 @@ El objetivo de **LibroScan** es proporcionar una solución tecnológica para mej
 * 🔄 Devoluciones.
 * 📋 Solicitudes.
 * 📊 Estadísticas e informes.
+
+---
+
+## 👨‍💻 Desarrollador
+
+**Jaider Galvis**
+
+GitHub: **Jaider-Galvis**
+
+Correo de desarrollo: `jaiderd.galvisg@iemrtg.edu.co`
 
 ---
 
@@ -298,12 +306,13 @@ El objetivo de **LibroScan** es proporcionar una solución tecnológica para mej
 
 **Sistema Integrado de Control de Biblioteca**
 
-Desarrollado como solución web para la gestión y administración del material bibliográfico institucional.
+Proyecto desarrollado para apoyar la gestión y administración del material bibliográfico institucional.
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto fue desarrollado con fines académicos e institucionales.
+Este proyecto fue desarrollado con fines **académicos e institucionales**.
 
 © 2026 — **LibroScan**
+**Jaider Galvis**
