@@ -273,6 +273,70 @@ El sistema implementa diferentes roles para controlar el acceso a las funcionali
 
 ---
 
+## El mapa de navegación de LibroScan
+
+                                  ┌─────────────────┐
+                                  │   Página de     │
+                                  │ Inicio / Landing│
+                                  └────────┬────────┘
+                                           │
+                                  ┌────────┴────────┐
+                                  │ Auth (Login /   │
+                                  │  Registro)      │
+                                  └────────┬────────┘
+                                           │
+                              ┌────────────┴────────────┐
+                              │     Redirección /       │
+                              │       Dashboard         │
+                              └────────────┬────────────┘
+                                           │
+                ┌──────────────────────────┴──────────────────────────┐
+                │                                                     │
+      ▼ ROL: Estudiante                                     ▼ ROL: Administrador / Bibliotecario
+┌───────────────────────────┐                         ┌─────────────────────────────────────────┐
+│  PANEL ESTUDIANTE         │                         │  PANEL DE ADMINISTRACIÓN                │
+├───────────────────────────┤                         ├─────────────────────────────────────────┤
+│ • Catálogo de Libros      │                         │ • Dashboard (Métricas y Movimientos)    │
+│   └─ Solicitud de préstamo│                         │ • Gestión de Usuarios (CRUD + Roles)    │
+│ • Mis Préstamos Activos   │                         │ • Catálogo de Libros (CRUD + Inventario)│
+│   └─ Solicitud renovación │                         │ • Logística y Entregas                  │
+│ • Historial de Préstamos  │                         │   └─ Aprobación y Entrega física        │
+│ • Perfil de Usuario       │                         │ • Informes y Reportes                   │
+└───────────────────────────┘                         │ • Perfil de Usuario                     │
+                                                      └─────────────────────────────────────────┘
+                              
+Estructura de Vistas y Rutas
+
+Público / Autenticación
+
+/ — Página de bienvenida
+
+/login — Iniciar sesión
+
+/register — Registro de usuarios
+
+Área de Estudiantes (/)
+
+/dashboard — Catálogo principal y vista de libros disponibles
+
+/prestamos — Libros que tiene actualmente prestados
+
+/historial — Historial de libros devueltos
+
+/profile — Configuración de la cuenta
+
+Área de Administración (/admin/)
+
+/admin/dashboard — Resumen estadístico (libros totales, préstamos activos, pendientes)
+
+/admin/usuarios — Lista, edición y asignación de roles a usuarios
+
+/admin/libros — Registro, modificación y baja de libros
+
+/admin/logistica — Panel de recepción de solicitudes y confirmación de entrega física
+
+/admin/informes — Generación de reportes institucionales
+
 ## 🎯 Objetivo del proyecto
 
 El objetivo de **LibroScan** es proporcionar una solución tecnológica para mejorar la gestión de los recursos bibliográficos de la institución.
