@@ -274,6 +274,7 @@ El sistema implementa diferentes roles para controlar el acceso a las funcionali
 ---
 
 ## 🗺️ Mapa de Navegación del Sistema
+![alt text](image.png)
 
 ```text
                                   ┌─────────────────┐
