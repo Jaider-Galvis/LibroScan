@@ -274,8 +274,11 @@ El sistema implementa diferentes roles para controlar el acceso a las funcionali
 ---
 
 ## 🗺️ Mapa de Navegación del Sistema
+Flujo del mapa (visual).
+
 ![alt text](image.png)
 
+Flujo del mapa.
 ```text
                                   ┌─────────────────┐
                                   │   Página de     │
