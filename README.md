@@ -273,8 +273,9 @@ El sistema implementa diferentes roles para controlar el acceso a las funcionali
 
 ---
 
-## El mapa de navegación de LibroScan
+## 🗺️ Mapa de Navegación del Sistema
 
+```text
                                   ┌─────────────────┐
                                   │   Página de     │
                                   │ Inicio / Landing│
