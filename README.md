@@ -306,6 +306,8 @@ El sistema implementa diferentes roles para controlar el acceso a las funcionali
 └───────────────────────────┘                         │ • Perfil de Usuario                     │
                                                       └─────────────────────────────────────────┘
                               
+```
+
 Estructura de Vistas y Rutas
 
 Público / Autenticación
