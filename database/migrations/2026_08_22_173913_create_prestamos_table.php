@@ -6,17 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-<<<<<<< HEAD
-=======
-    /**
-     * Run the migrations.
-     */
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
     public function up(): void
     {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
-<<<<<<< HEAD
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('libro_id')->constrained('libros')->onDelete('cascade');
             
@@ -35,24 +28,10 @@ return new class extends Migration
             $table->enum('estado', ['pendiente', 'activo', 'aprobado', 'rechazado', 'devuelto'])->default('pendiente'); 
             
             $table->text('observaciones')->nullable();
-=======
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('libro_id')->constrained('libros')->onDelete('cascade');
-            $table->string('estado')->default('activo'); // activo, devuelto, renovado
-            $table->timestamp('fecha_prestamo')->useCurrent();
-            $table->timestamp('fecha_devolucion_esperada')->nullable();
-            $table->timestamp('fecha_devolucion_real')->nullable();
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
             $table->timestamps();
         });
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * Reverse the migrations.
-     */
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
     public function down(): void
     {
         Schema::dropIfExists('prestamos');

@@ -104,35 +104,11 @@ Route::middleware(['auth', 'throttle:30,1'])
         Route::put('/libros/{libro}', [LibroController::class, 'update'])->name('libros.update');
         Route::delete('/libros/{libro}', [LibroController::class, 'destroy'])->name('libros.destroy');
 
-<<<<<<< HEAD
-        // Logística y Entregas (Llama directamente al controlador)
+        // Logística y Entregas (Procesado por el controlador)
         Route::get('/logistica', [PrestamoController::class, 'adminIndex'])->name('logistica.index');
 
         // Cambiar estado del préstamo (Aprobar, Rechazar o Devolver)
         Route::patch('/prestamos/{id}/estado', [PrestamoController::class, 'cambiarEstado'])->name('prestamos.cambiarEstado');
-=======
-        // Logística y Entregas (Carga solicitudes pendientes y activas)
-        Route::get('/logistica', function () {
-            $solicitudes = Prestamo::with(['libro', 'user'])
-                ->whereIn('estado', ['pendiente', 'activo'])
-                ->latest()
-                ->get();
-
-            return view('admin.logistica.index', compact('solicitudes'));
-        })->name('logistica.index');
-
-        // Confirmación de entrega del libro por parte del bibliotecario
-        Route::patch('/prestamos/{id}/entregar', function ($id) {
-            $prestamo = Prestamo::findOrFail($id);
-            $prestamo->update([
-                'estado' => 'activo',
-                'fecha_prestamo' => now(),
-                'fecha_devolucion_esperada' => now()->addDays(7),
-            ]);
-
-            return back()->with('success', '¡El libro ha sido entregado e iniciado el préstamo correctamente!');
-        })->name('prestamos.entregar');
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
 
         // Informes
         Route::get('/informes', function () {

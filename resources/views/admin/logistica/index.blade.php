@@ -73,15 +73,12 @@
                     </div>
                 @endif
 
-<<<<<<< HEAD
                 @if (session('error'))
                     <div class="mb-4 bg-rose-100 border border-rose-300 text-rose-800 px-4 py-3 rounded-xl text-xs font-bold shadow-sm">
                         {{ session('error') }}
                     </div>
                 @endif
 
-=======
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <table class="w-full text-left border-collapse">
                         <thead>
@@ -97,7 +94,6 @@
                             @forelse ($solicitudes ?? [] as $prestamo)
                                 <tr class="hover:bg-slate-50/50 transition">
                                     <td class="p-4 font-bold text-slate-800">{{ $prestamo->libro->titulo ?? 'Sin libro' }}</td>
-<<<<<<< HEAD
                                     
                                     <!-- Solicitante: Busca en el préstamo y luego en la relación de usuario -->
                                     <td class="p-4">
@@ -179,23 +175,6 @@
                                         @else
                                             <span class="text-slate-400 text-[11px] italic">Finalizado</span>
                                         @endif
-=======
-                                    <td class="p-4">{{ $prestamo->user->name ?? 'Usuario no encontrado' }}</td>
-                                    <td class="p-4 text-slate-500">{{ $prestamo->created_at->format('d/m/Y H:i') }}</td>
-                                    <td class="p-4">
-                                        <span class="bg-amber-100 text-amber-700 font-bold px-2.5 py-1 rounded-md text-[10px] uppercase">
-                                            {{ $prestamo->estado }}
-                                        </span>
-                                    </td>
-                                    <td class="p-4 text-center">
-                                        <form method="POST" action="{{ route('admin.prestamos.entregar', $prestamo->id) }}" style="display: inline-block;">
-                                            @csrf
-                                            @method('PATCH')
-                                            <button type="submit" style="background-color: #16a34a !important; color: #ffffff !important; padding: 6px 12px !important; border-radius: 8px !important; font-weight: bold !important; font-size: 11px !important; text-transform: uppercase !important; border: none !important; cursor: pointer !important;">
-                                                Entregar Libro
-                                            </button>
-                                        </form>
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
                                     </td>
                                 </tr>
                             @empty

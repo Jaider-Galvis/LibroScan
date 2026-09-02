@@ -61,11 +61,7 @@
                     </div>
                 </div>
 
-<<<<<<< HEAD
                 <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">Préstamos Activos y Solicitudes</h3>
-=======
-                <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">Préstamos Activos</h3>
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
 
                 <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
                     <table class="w-full text-left border-collapse">
@@ -80,7 +76,6 @@
                         <tbody class="divide-y divide-slate-100 text-xs text-slate-700">
                             @forelse ($prestamos ?? [] as $prestamo)
                                 <tr class="hover:bg-slate-50/50 transition">
-<<<<<<< HEAD
                                     <td class="p-4 font-bold text-slate-800">
                                         {{ $prestamo->libro->titulo ?? 'Libro no especificado' }}
                                     </td>
@@ -120,29 +115,12 @@
                                                 {{ $prestamo->estado }}
                                             </span>
                                         @endif
-=======
-                                    <td class="p-4 font-bold text-slate-800">{{ $prestamo->libro->titulo ?? 'Libro no especificado' }}</td>
-                                    <td class="p-4">
-                                        {{ $prestamo->fecha_prestamo ? \Carbon\Carbon::parse($prestamo->fecha_prestamo)->format('d/m/Y') : $prestamo->created_at->format('d/m/Y') }}
-                                    </td>
-                                    <td class="p-4 font-semibold text-amber-600">
-                                        {{ $prestamo->fecha_devolucion_esperada ? \Carbon\Carbon::parse($prestamo->fecha_devolucion_esperada)->format('d/m/Y') : ($prestamo->fecha_limite ? \Carbon\Carbon::parse($prestamo->fecha_limite)->format('d/m/Y') : 'Pendiente') }}
-                                    </td>
-                                    <td class="p-4">
-                                        <span class="bg-blue-100 text-blue-700 font-bold px-2.5 py-1 rounded-md text-[10px] uppercase">
-                                            {{ $prestamo->estado ?? 'EN PRÉSTAMO' }}
-                                        </span>
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
                                     <td colspan="4" class="p-8 text-center text-slate-400 font-medium italic">
-<<<<<<< HEAD
                                         No tienes préstamos ni solicitudes en este momento.
-=======
-                                        No tienes libros marcados como prestados en este momento.
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
                                     </td>
                                 </tr>
                             @endforelse

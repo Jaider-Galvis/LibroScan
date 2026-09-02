@@ -5,16 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LibroScan — Catálogo Estudiante</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-<<<<<<< HEAD
     <!-- Alpine.js para la interactividad del Modal -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="bg-slate-200 font-sans antialiased p-4 md:p-6 min-h-screen flex items-center justify-center" 
       x-data="{ openModal: false, libroId: null, libroTitulo: '' }">
-=======
-</head>
-<body class="bg-slate-200 font-sans antialiased p-4 md:p-6 min-h-screen flex items-center justify-center">
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
 
     <!-- Contenedor Principal -->
     <div class="w-full max-w-7xl bg-[#0f2a4a] rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-slate-700 min-h-[750px]">
@@ -82,11 +77,7 @@
                     </div>
                 </div>
 
-<<<<<<< HEAD
                 <!-- Mensajes de Notificación y Errores de Validación -->
-=======
-                <!-- Mensajes de Notificación -->
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
                 @if (session('success'))
                     <div class="mb-4 bg-emerald-100 border border-emerald-300 text-emerald-800 px-4 py-3 rounded-xl text-xs font-bold shadow-sm">
                         {{ session('success') }}
@@ -99,7 +90,6 @@
                     </div>
                 @endif
 
-<<<<<<< HEAD
                 @if ($errors->any())
                     <div class="mb-4 bg-rose-100 border border-rose-300 text-rose-800 px-4 py-3 rounded-xl text-xs font-bold shadow-sm">
                         <ul class="list-disc list-inside space-y-1">
@@ -110,8 +100,6 @@
                     </div>
                 @endif
 
-=======
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
                 <!-- Buscador de Libros -->
                 <form method="GET" action="{{ route('dashboard') }}" class="mb-8">
                     <div class="relative w-full max-w-md">
@@ -144,22 +132,12 @@
                                         Disponible ({{ $libro->stock ?? 1 }})
                                     </span>
                                     
-<<<<<<< HEAD
                                     <!-- Botón que activa el Modal -->
                                     <button type="button" 
                                             @click="openModal = true; libroId = '{{ $libro->id }}'; libroTitulo = '{{ addslashes($libro->titulo) }}'" 
                                             style="background-color: #2563eb !important; color: #ffffff !important; padding: 6px 14px !important; border-radius: 8px !important; font-weight: bold !important; font-size: 12px !important; text-transform: uppercase !important; border: none !important; cursor: pointer !important; display: inline-block !important;">
                                         Prestar
                                     </button>
-=======
-                                    <form method="POST" action="{{ route('prestamos.store') }}" style="display: inline-block !important;">
-                                        @csrf
-                                        <input type="hidden" name="libro_id" value="{{ $libro->id }}">
-                                        <button type="submit" style="background-color: #2563eb !important; color: #ffffff !important; padding: 6px 14px !important; border-radius: 8px !important; font-weight: bold !important; font-size: 12px !important; text-transform: uppercase !important; border: none !important; cursor: pointer !important; display: inline-block !important;">
-                                            Prestar
-                                        </button>
-                                    </form>
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
                                 </div>
                             </div>
                         @empty
@@ -175,7 +153,6 @@
         </main>
     </div>
 
-<<<<<<< HEAD
     <!-- MODAL POPUP: Formulario de Solicitud de Préstamo -->
     <div x-show="openModal" 
          class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 z-50" 
@@ -246,7 +223,5 @@
         </div>
     </div>
 
-=======
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
 </body>
 </html>

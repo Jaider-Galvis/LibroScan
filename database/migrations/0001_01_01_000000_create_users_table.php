@@ -15,18 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-<<<<<<< HEAD
-            $table->string('documento')->nullable(); // <-- Documento de identidad / Tarjeta de identidad
-            $table->string('telefono')->nullable();  // <-- Teléfono de contacto
-            $table->string('grado')->nullable();     // <-- Grado o curso del estudiante
+            $table->string('documento')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('grado')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role')->default('student'); // <-- Rol para la plataforma
-=======
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('role')->default('student'); // <-- Columna agregada para gestionar roles
->>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
+            $table->string('role')->default('student');
             $table->rememberToken();
             $table->timestamps();
         });
