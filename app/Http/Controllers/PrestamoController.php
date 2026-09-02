@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PrestamoController extends Controller
 {
+<<<<<<< HEAD
     // 1. Solicitar un libro desde el catálogo (Estudiante)
     public function store(Request $request)
     {
@@ -45,10 +46,23 @@ class PrestamoController extends Controller
         $libro = Libro::findOrFail($request->libro_id);
 
         // Validar stock disponible
+=======
+    // Solicitar un libro desde el catálogo
+    public function store(Request $request)
+    {
+        $request->validate([
+            'libro_id' => 'required|exists:libros,id',
+        ]);
+
+        $libro = Libro::findOrFail($request->libro_id);
+
+        // Validar stock tolerando nulos o ceros no configurados
+>>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
         if (!is_null($libro->stock) && $libro->stock < 1) {
             return back()->with('error', 'El libro no cuenta con unidades disponibles.');
         }
 
+<<<<<<< HEAD
         // Crear solicitud guardando los datos del estudiante y las observaciones
         Prestamo::create([
             'user_id'         => $userId,
@@ -65,18 +79,46 @@ class PrestamoController extends Controller
     }
 
     // 2. Mis Préstamos Activos (Estudiante)
+=======
+        // Crear registro de préstamo con estado 'pendiente' para aprobación del admin
+        Prestamo::create([
+            'user_id' => Auth::id(),
+            'libro_id' => $libro->id,
+            'estado' => 'pendiente', // 'pendiente' para que aparezca en Logística del Admin
+            'fecha_solicitud' => now(),
+            'fecha_prestamo' => now(),
+            'fecha_devolucion_esperada' => now()->addDays(7),
+        ]);
+
+        // Descontar stock únicamente si existe la columna y es mayor a 0
+        if ($libro->stock > 0) {
+            $libro->decrement('stock');
+        }
+
+        return back()->with('success', '¡Solicitud de préstamo realizada con éxito!');
+    }
+
+    // Mis Préstamos Activos
+>>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
     public function index()
     {
         $prestamos = Prestamo::with('libro')
             ->where('user_id', Auth::id())
             ->whereIn('estado', ['activo', 'pendiente'])
+<<<<<<< HEAD
             ->latest()
+=======
+>>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
             ->get();
 
         return view('prestamos.index', compact('prestamos'));
     }
 
+<<<<<<< HEAD
     // 3. Historial Completo (Estudiante)
+=======
+    // Historial Completo
+>>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
     public function historial()
     {
         $historial = Prestamo::with('libro')
@@ -86,6 +128,7 @@ class PrestamoController extends Controller
 
         return view('historial.index', compact('historial'));
     }
+<<<<<<< HEAD
 
     // 4. Panel de Logística / Gestión de Solicitudes (Administrador)
     public function adminIndex()
@@ -124,4 +167,6 @@ class PrestamoController extends Controller
 
         return back()->with('success', 'El estado del préstamo fue actualizado correctamente.');
     }
+=======
+>>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
 }

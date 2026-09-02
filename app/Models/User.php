@@ -19,15 +19,22 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+<<<<<<< HEAD
         'documento', // <-- Permite guardar el documento
         'telefono',  // <-- Permite guardar el teléfono
         'grado',     // <-- Permite guardar el grado
+=======
+>>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
         'password',
         'role',
     ];
 
     /**
+<<<<<<< HEAD
      * Valores por defecto para el modelo en memoria.
+=======
+     * Valors por defecto para el modelo en memoria.
+>>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
      *
      * @var array<string, string>
      */
@@ -59,6 +66,7 @@ class User extends Authenticatable
     }
 
     /**
+<<<<<<< HEAD
      * Relación: Un usuario puede tener muchos préstamos.
      */
     public function prestamos()
@@ -67,6 +75,8 @@ class User extends Authenticatable
     }
 
     /**
+=======
+>>>>>>> 1acfdab512664ac7878291e1876e3e0944357adb
      * Verifica si el usuario es administrador o bibliotecario.
      */
     public function isAdmin(): bool
